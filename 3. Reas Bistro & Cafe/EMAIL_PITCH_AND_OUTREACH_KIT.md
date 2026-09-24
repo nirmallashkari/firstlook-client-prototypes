@@ -2,23 +2,24 @@
 
 ## 🎯 Target Overview
 * **Recipient:** Réamonn Rea (Owner & General Manager)
-* **Direct Phone:** `+353 1 492 7684`
-* **Social Channel:** Facebook `facebook.com/reamondoreabistro`
+* **Direct Phones:** `+353 1 223 8194` / `+353 1 492 7684`
+* **Direct Email:** `reasbistro@gmail.com`
+* **Social Channel:** Facebook `facebook.com/firstlooksite` / `facebook.com/reamondoreabistro`
 * **Location:** Unit 7a, Sundrive Shopping Centre, Kimmage, Dublin D12 H516, Ireland
-* **Upwork Post Reference:** Square Website Design and Set-Up, end to end (Exact reference: Square 'Lettuce Leaf Salad Bar' theme)
+* **Project Reference:** Square Website Design and Set-Up, end to end (Exact reference: Square 'Lettuce Leaf Salad Bar' theme)
 * **Our Trojan Horse:** Complete working prototype `square_menu_preview.html` matching the exact Square "Lettuce Leaf" pattern with real Dublin breakfast, panini, salad, and coffee items.
 
 ---
 
 ## 📧 Phone Script & Direct Message: The "Work Already Done" Pitch
-**Channel:** WhatsApp / Direct Call to `+353 1 492 7684` or Facebook Message to Réamonn
+**Channel:** Direct Call to `+353 1 223 8194` / `+353 1 492 7684`, Direct Email to `reasbistro@gmail.com`, or Facebook Message to Réamonn
 
 **Message Text:**
 > Hi Réamonn,
 >
-> I saw your post looking for a web developer to build the complete Square website for Rea's Cafe in Kimmage, and specifically that you love the layout of Square's "Lettuce Leaf Salad Bar" theme with the hero top and category sections below.
+> I saw that you're setting up a dedicated online ordering website for Rea's Bistro in Kimmage, specifically modeled after the clean, mobile-first Square 'Lettuce Leaf' layout with category tabs and fast checkout.
 >
-> Instead of just quoting on Upwork with promises, I went ahead and actually built the initial working model for Rea's Bistro using your exact menu items (Full Irish Breakfast, Kimmage Club Panini, Smashed Avocado) and Dublin pricing:
+> Instead of sending a standard sales pitch, I went ahead and built an interactive working model for Rea's Bistro featuring your real menu items (Full Irish Breakfast, Kimmage Club Panini, Smashed Avocado) and Dublin pricing:
 >
 > 👉 **Live Square Online Menu Preview:** https://nirmallashkari.github.io/firstlook-client-prototypes/3.%20Reas%20Bistro%20&%20Cafe/square_menu_preview.html
 >
@@ -43,7 +44,7 @@
 * **Staff answers:** *"Rea's Bistro, how can I help you?"*
 * **You:** *"Hi there! Could I speak with Réamonn please? It's regarding the new Square website he's setting up for the cafe."*
 * **When Réamonn is on the line:**
-  * *"Hi Réamonn, my name is Nirmal. I saw your job post on Upwork where you mentioned wanting a Square website built like the 'Lettuce Leaf' theme. I actually went ahead and built the initial demo layout with your real breakfast, panini, and coffee menu already loaded so you can see it live right now. Would it be okay if I send the preview link to your WhatsApp or email?"*
+  * *"Hi Réamonn, my name is Nirmal with FirstLookSites. I saw that you're setting up a dedicated Square website for Rea's Bistro modeled after the 'Lettuce Leaf' layout. I actually went ahead and built the initial demo layout with your real breakfast, panini, and coffee menu already loaded so you can see it live right now. Would it be okay if I send the preview link to your email or WhatsApp?"*
 * **Result:** No local business owner turns down seeing their own menu already built.
 
 ---
@@ -51,4 +52,4 @@
 ## 💰 Closing & Pricing Script
 * **Client Response:** *"Looks great, how much to finish everything?"*
 * **Our Response:**
-  > *"To take care of the entire end-to-end setup — including importing your full food inventory into Square, linking your Square POS terminal, configuring pickup/delivery hours, connecting your custom domain, and testing real transactions — my fixed fee is **€450** ($500 USD). We can set it up as a milestone contract on Upwork so your payment is protected in escrow until you are 100% happy, or via direct invoice. I can have it fully live for you by tomorrow."*
+  > *"To take care of the entire end-to-end setup — including importing your full food inventory into Square, linking your Square POS terminal, configuring pickup/delivery hours, connecting your custom domain, and testing real transactions — my fixed fee is **€450** ($500 USD) via direct invoice or escrow milestone. I can have it fully live for you by tomorrow."*

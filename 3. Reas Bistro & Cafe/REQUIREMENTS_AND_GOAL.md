@@ -12,8 +12,9 @@
 
 ## 👤 2. Direct Decision-Maker & Contact Information
 * **Owner & General Manager:** Réamonn Rea
-* **Direct Phone Number:** `+353 1 492 7684`
-* **Direct Contact Mechanism:** Direct phone call / WhatsApp to bistro line + Facebook official page
+* **Direct Phone Numbers:** `+353 1 223 8194` / `+353 1 492 7684`
+* **Direct Email:** `reasbistro@gmail.com`
+* **Direct Contact Mechanism:** Direct email / phone call to bistro line + Facebook official page (`facebook.com/firstlooksite` / `facebook.com/reamondoreabistro`)
 
 ---
 
