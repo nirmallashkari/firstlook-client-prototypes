@@ -21,7 +21,7 @@
 >
 > Instead, I took 2 hours and actually redesigned your **Homepage Hero & Variety 6-Pack Bundle section** in modern Shopify Dawn style to help double your DTC online sales:
 >
-> 👉 **Live Interactive Redesign Preview:** https://organisms-bureau-peer-mapping.trycloudflare.com/2.%20P-nuff%20Crunch/shopify_redesign_preview.html
+> 👉 **Live Interactive Redesign Preview:** https://nirmallashkari.github.io/firstlook-client-prototypes/2.%20P-nuff%20Crunch/shopify_redesign_preview.html
 >
 > **Key conversion drivers built into this redesign:**
 > 1. **Shark Tank Authority Banner:** Highlights Mark Cuban's endorsement and press validation prominently above the fold.

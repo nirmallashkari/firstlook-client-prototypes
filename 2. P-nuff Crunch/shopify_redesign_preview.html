@@ -437,7 +437,7 @@
             <!-- Custom High-Res Illustrated Pouches -->
             <div class="pouch-showcase">
                 <!-- Roasted Peanut Pouch -->
-                <div class="pouch-card active" onclick="highlightFlavor('Original Roasted Peanut', 'Slow-roasted Valencia peanuts with a hint of sea salt.')">
+                <div class="pouch-card active" onclick="highlightFlavor(this, 'Original Roasted Peanut', 'Slow-roasted Valencia peanuts with a hint of sea salt.')">
                     <svg class="pouch-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="10" y="10" width="80" height="110" rx="14" fill="#FFB800" stroke="#D99B00" stroke-width="2"/>
                         <rect x="15" y="15" width="70" height="24" rx="6" fill="#3D1C06"/>
@@ -453,7 +453,7 @@
                 </div>
 
                 <!-- Cinnamon Pouch -->
-                <div class="pouch-card" onclick="highlightFlavor('Cinnamon Twist', 'Real aromatic Ceylon cinnamon with sweet organic cane sugar.')">
+                <div class="pouch-card" onclick="highlightFlavor(this, 'Cinnamon Twist', 'Real aromatic Ceylon cinnamon with sweet organic cane sugar.')">
                     <svg class="pouch-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="10" y="10" width="80" height="110" rx="14" fill="#D97706" stroke="#B45309" stroke-width="2"/>
                         <rect x="15" y="15" width="70" height="24" rx="6" fill="#3D1C06"/>
@@ -469,7 +469,7 @@
                 </div>
 
                 <!-- Roasted Cocoa Pouch -->
-                <div class="pouch-card" onclick="highlightFlavor('Roasted Cocoa', 'Rich antioxidant dark cocoa infused with roasted peanut crunch.')">
+                <div class="pouch-card" onclick="highlightFlavor(this, 'Roasted Cocoa', 'Rich antioxidant dark cocoa infused with roasted peanut crunch.')">
                     <svg class="pouch-svg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="10" y="10" width="80" height="110" rx="14" fill="#78350F" stroke="#451A03" stroke-width="2"/>
                         <rect x="15" y="15" width="70" height="24" rx="6" fill="#1F1005"/>
@@ -709,10 +709,10 @@
         let currentPlan = 'Subscribe & Save 15% (Monthly)';
         let qtys = { peanut: 2, cinnamon: 2, cocoa: 2 };
 
-        function highlightFlavor(name, desc) {
+        function highlightFlavor(el, name, desc) {
             document.getElementById('flavorHighlightText').innerHTML = 'Selected: <b>' + name + '</b> — ' + desc;
             document.querySelectorAll('.pouch-card').forEach(p => p.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            if (el) el.classList.add('active');
         }
 
         function changeQty(flavor, delta) {

@@ -21,7 +21,7 @@
 >
 > Rather than sending a standard resume or proposal on Upwork like 40 other freelancers, I took 2 hours and actually built **Wireframe #1 (Paid Landing Page)** for Workplace Systems with an interactive, above-the-fold quote estimator:
 >
-> 👉 **Live Interactive Wireframe Preview:** https://organisms-bureau-peer-mapping.trycloudflare.com/1.%20Workplace%20Modular%20Systems/wireframe_preview.html
+> 👉 **Live Interactive Wireframe Preview:** https://nirmallashkari.github.io/firstlook-client-prototypes/1.%20Workplace%20Modular%20Systems/wireframe_preview.html
 >
 > **Key fixes built into this wireframe:**
 > 1. **Above-the-fold 3-step quote estimator:** Lets aerospace & lab buyers select their frame, surface, and width with live pricing.

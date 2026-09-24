@@ -20,7 +20,7 @@
 >
 > Instead of just quoting on Upwork with promises, I went ahead and actually built the initial working model for Rea's Bistro using your exact menu items (Full Irish Breakfast, Kimmage Club Panini, Smashed Avocado) and Dublin pricing:
 >
-> 👉 **Live Square Online Menu Preview:** https://organisms-bureau-peer-mapping.trycloudflare.com/3.%20Reas%20Bistro%20&%20Cafe/square_menu_preview.html
+> 👉 **Live Square Online Menu Preview:** https://nirmallashkari.github.io/firstlook-client-prototypes/3.%20Reas%20Bistro%20&%20Cafe/square_menu_preview.html
 >
 > **What I've already prepared for Rea's:**
 > 1. Exact **Square 'Lettuce Leaf' responsive design** optimized for fast mobile ordering.

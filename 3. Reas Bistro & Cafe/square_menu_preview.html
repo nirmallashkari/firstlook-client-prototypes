@@ -549,14 +549,20 @@
         }
 
         function addToTray(name, price) {
-            tray.push({ name, price });
+            const existing = tray.find(item => item.name === name);
+            if (existing) {
+                existing.qty = (existing.qty || 1) + 1;
+            } else {
+                tray.push({ name, price, qty: 1 });
+            }
             updateTray();
             toggleOrderDrawer(true);
         }
 
         function updateTray() {
             const list = document.getElementById('orderItemsList');
-            document.getElementById('trayCount').innerText = `Order Tray (${tray.length})`;
+            const totalCount = tray.reduce((sum, i) => sum + i.qty, 0);
+            document.getElementById('trayCount').innerText = `Order Tray (${totalCount})`;
             
             if (tray.length === 0) {
                 list.innerHTML = `<div style="text-align: center; color: var(--text-muted); margin-top: 40px;">Your order tray is empty. Click "+ Add" on any menu item!</div>`;
@@ -567,22 +573,34 @@
             let total = 0;
             let html = '';
             tray.forEach((item, idx) => {
-                total += item.price;
+                const rowTotal = item.price * item.qty;
+                total += rowTotal;
                 html += `
                     <div class="order-item-row">
                         <div>
                             <div style="font-weight: 700; font-size: 14px; color: var(--brand-green);">${item.name}</div>
-                            <div style="font-size: 12px; color: #666;">Fresh Kitchen Preparation</div>
+                            <div style="font-size: 12px; color: #666;">€${item.price.toFixed(2)} each</div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="font-weight: 700; font-size: 14px;">€${item.price.toFixed(2)}</span>
-                            <button onclick="removeItem(${idx})" style="background:none; border:none; color:#C53030; cursor:pointer; font-weight:bold; font-size: 16px;">×</button>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <button onclick="changeTrayQty(${idx}, -1)" style="width:24px;height:24px;border:1px solid #CBD5E1;border-radius:50%;background:#fff;cursor:pointer;font-weight:bold;">−</button>
+                            <span style="font-weight: 800; font-size: 13px; min-width: 14px; text-align: center;">${item.qty}</span>
+                            <button onclick="changeTrayQty(${idx}, 1)" style="width:24px;height:24px;border:1px solid #CBD5E1;border-radius:50%;background:#fff;cursor:pointer;font-weight:bold;">+</button>
+                            <span style="font-weight: 700; font-size: 14px; margin-left: 6px;">€${rowTotal.toFixed(2)}</span>
+                            <button onclick="removeItem(${idx})" style="background:none; border:none; color:#C53030; cursor:pointer; font-weight:bold; font-size: 16px; margin-left:4px;">×</button>
                         </div>
                     </div>
                 `;
             });
             list.innerHTML = html;
             document.getElementById('trayTotal').innerText = `€${total.toFixed(2)}`;
+        }
+
+        function changeTrayQty(idx, delta) {
+            tray[idx].qty += delta;
+            if (tray[idx].qty <= 0) {
+                tray.splice(idx, 1);
+            }
+            updateTray();
         }
 
         function removeItem(idx) {

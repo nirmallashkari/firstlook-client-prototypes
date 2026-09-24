@@ -918,6 +918,18 @@
                 accTotal -= price;
             }
             document.getElementById('cfgTotalDisplay').innerText = '$' + (815 + accTotal).toFixed(2);
+            
+            const selectedCards = document.querySelectorAll('.option-choice-card.selected h5');
+            const summaryDiv = document.getElementById('cfgAccSummary');
+            if (selectedCards.length === 0) {
+                summaryDiv.innerHTML = '<em>No accessories selected</em>';
+            } else {
+                let html = '';
+                selectedCards.forEach(c => {
+                    html += '<div>• ' + c.innerText + '</div>';
+                });
+                summaryDiv.innerHTML = html;
+            }
         }
     </script>
 </body>
