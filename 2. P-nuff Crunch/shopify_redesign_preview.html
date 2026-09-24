@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-nuff Crunch | Modern Shopify Dawn Redesign Prototype (DTC Bundle)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-yellow: #FFB800;
+            --brand-brown: #3D1C06;
+            --brand-orange: #FF5A1F;
+            --brand-green: #2E7D32;
+            --cream-bg: #FFFDF9;
+            --dark: #1F2937;
+            --border: #F3E8D8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: var(--cream-bg); color: var(--dark); line-height: 1.5; }
+
+        /* Announcement */
+        .announcement-bar {
+            background: var(--brand-brown);
+            color: #fff;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 16px;
+            letter-spacing: 0.3px;
+        }
+        .announcement-bar span { color: var(--brand-yellow); }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: #fff;
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(61, 28, 6, 0.04);
+        }
+        .logo-box { display: flex; align-items: center; gap: 8px; }
+        .logo { font-size: 28px; font-weight: 800; color: var(--brand-brown); letter-spacing: -1px; }
+        .logo span { color: var(--brand-orange); }
+        .nav-links { display: flex; gap: 32px; list-style: none; font-size: 15px; font-weight: 700; }
+        .nav-links a { text-decoration: none; color: var(--brand-brown); transition: 0.2s; }
+        .nav-links a:hover { color: var(--brand-orange); }
+        
+        .btn-cart-header {
+            background: var(--brand-orange);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 90, 31, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Product Bundle Grid */
+        .product-section {
+            max-width: 1220px;
+            margin: 44px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 52px;
+            align-items: center;
+        }
+        .visual-container {
+            background: linear-gradient(145deg, #FFF1D6, #FFE4B5);
+            border-radius: 28px;
+            padding: 44px 30px;
+            text-align: center;
+            border: 2px solid #F6D8A8;
+            position: relative;
+        }
+        .shark-tank-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #002244;
+            color: #fff;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0, 34, 68, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .bundle-mockup {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 20px 35px -10px rgba(61, 28, 6, 0.15);
+            border: 2px solid #F0D5B2;
+        }
+        .bundle-badge {
+            display: inline-block;
+            background: var(--brand-orange);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .bundle-flavors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .flavor-pill {
+            background: #FFF8EE;
+            border: 1px solid #ECC99D;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--brand-brown);
+        }
+
+        /* Product Form */
+        .product-info h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--brand-brown);
+            line-height: 1.18;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+        .reviews-summary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #8C532D;
+            margin-bottom: 18px;
+        }
+        .stars { color: #F59E0B; }
+        .product-tagline {
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        /* Purchase Options Box */
+        .purchase-box {
+            background: #fff;
+            border: 2px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+        .option-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-row.active {
+            border-color: var(--brand-orange);
+            background: #FFF6F3;
+        }
+        .option-left { display: flex; align-items: center; gap: 12px; }
+        .option-title { font-size: 15px; font-weight: 800; color: var(--brand-brown); }
+        .option-badge {
+            background: var(--brand-green);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 9px;
+            border-radius: 8px;
+            margin-left: 6px;
+        }
+        .option-price { font-size: 20px; font-weight: 800; color: var(--brand-brown); }
+
+        .btn-add-bundle {
+            width: 100%;
+            background: var(--brand-orange);
+            color: #fff;
+            padding: 18px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(255, 90, 31, 0.35);
+            transition: all 0.2s;
+        }
+        .btn-add-bundle:hover { background: #E6480F; transform: translateY(-2px); }
+        .shipping-note { font-size: 13px; text-align: center; color: #6B7280; margin-top: 12px; font-weight: 600; }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: #fff;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            padding: 64px 24px;
+            margin-top: 60px;
+        }
+        .comp-container { max-width: 920px; margin: 0 auto; text-align: center; }
+        .comp-container h2 { font-size: 32px; font-weight: 800; color: var(--brand-brown); margin-bottom: 32px; }
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFDF9;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(61, 28, 6, 0.05);
+            border: 1px solid var(--border);
+        }
+        .comp-table th, .comp-table td {
+            padding: 18px 22px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+        .comp-table th { background: #FDEBD2; color: var(--brand-brown); font-weight: 800; font-size: 16px; }
+        .comp-table td.highlight { background: #FFF4E5; font-weight: 800; color: var(--brand-orange); }
+
+        /* Cart Drawer Simulator */
+        .cart-drawer {
+            position: fixed;
+            top: 0; right: -420px; width: 400px; height: 100vh;
+            background: #fff;
+            box-shadow: -10px 0 25px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+        .cart-drawer.open { right: 0; }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+        .cart-items { flex-grow: 1; padding: 20px 0; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; background: #FFFDF9; border: 1px solid var(--border); padding: 14px; border-radius: 12px; }
+        .free-shipping-progress { background: #E5E7EB; border-radius: 10px; height: 8px; margin: 16px 0; overflow: hidden; }
+        .free-shipping-fill { background: var(--brand-green); width: 100%; height: 100%; }
+        .btn-checkout { width: 100%; background: var(--brand-green); color: #fff; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 800; border: none; cursor: pointer; }
+
+        @media (max-width: 900px) {
+            .product-section { grid-template-columns: 1fr; margin: 24px auto; }
+            header { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .product-info h1 { font-size: 30px; }
+            .cart-drawer { width: 100%; right: -100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        🦈 <span>AS SEEN ON SHARK TANK:</span> Mark Cuban Invested $400,000 | <span>FREE USA Shipping</span> on All 6-Pack Bundles!
+    </div>
+
+    <header>
+        <div class="logo-box">
+            <div class="logo">P-nuff <span>CRUNCH</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#bundle">Shop Bundles</a></li>
+            <li><a href="#nutrition">Nutrition Showdown</a></li>
+            <li><a href="#founder">Dr. Juan's Story</a></li>
+            <li><a href="#reviews">Verified Reviews</a></li>
+        </ul>
+        <button class="btn-cart-header" onclick="toggleCart()">
+            🛒 <span id="headerCartCount">Cart (1) • $21.24</span>
+        </button>
+    </header>
+
+    <main class="product-section" id="bundle">
+        <div class="visual-container">
+            <div class="shark-tank-badge">★ SHARK TANK SEASON 12 PARTNER</div>
+            <div class="bundle-mockup">
+                <div class="bundle-badge">BEST-SELLING STARTER PACK</div>
+                <h3 style="font-size: 24px; color: var(--brand-brown); font-weight: 800;">Variety 6-Pack Bundle</h3>
+                <p style="font-size: 13px; color: #6B7280; margin: 8px 0 16px;">Two bags of each award-winning roasted flavor</p>
+                <div style="font-size: 72px; margin: 12px 0;">🥜⚡🍫</div>
+                <div class="bundle-flavors">
+                    <span class="flavor-pill">2x Roasted Peanut</span>
+                    <span class="flavor-pill">2x Cinnamon</span>
+                    <span class="flavor-pill">2x Roasted Cocoa</span>
+                </div>
+            </div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--brand-brown); margin-top: 14px;">
+                💬 "These baked peanut puffs are pure gold." — <b>Mark Cuban</b>
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="reviews-summary">
+                <span class="stars">★★★★★</span>
+                <span>4.9 / 5.0 (1,840+ Verified Shark Tank Buyers)</span>
+            </div>
+
+            <h1>Power Your Crunch With 5g Pure Plant Protein.</h1>
+            <p class="product-tagline">
+                Created by Food Scientist & Dr. of Nutrition Juan Salinas. Baked with slow-roasted Valencia peanuts, organic navy beans, and whole brown rice. 100% plant-based, gluten-free, and irresistibly crunchy.
+            </p>
+
+            <div class="purchase-box">
+                <div class="option-row active" onclick="selectPlan(this, 21.24, 'Subscribe & Save (Monthly)')">
+                    <div class="option-left">
+                        <input type="radio" name="plan" checked>
+                        <div>
+                            <div class="option-title">Subscribe & Save 15% <span class="option-badge">BEST VALUE</span></div>
+                            <span style="font-size: 12px; color: #6B7280;">Fresh monthly box • Skip or cancel anytime</span>
+                        </div>
+                    </div>
+                    <div class="option-price">$21.24</div>
+                </div>
+
+                <div class="option-row" onclick="selectPlan(this, 24.99, 'One-Time 6-Pack Purchase')">
+                    <div class="option-left">
+                        <input type="radio" name="plan">
+                        <div>
+                            <div class="option-title">One-Time 6-Pack Box</div>
+                            <span style="font-size: 12px; color: #6B7280;">Standard single delivery</span>
+                        </div>
+                    </div>
+                    <div class="option-price">$24.99</div>
+                </div>
+
+                <button class="btn-add-bundle" onclick="addToCart()">
+                    Add 6-Pack Variety Bundle to Cart →
+                </button>
+                <div class="shipping-note">⚡ Free Fast 2-3 Day US Shipping • 30-Day Clean Crunch Guarantee</div>
+            </div>
+        </div>
+    </main>
+
+    <section class="comparison-section" id="nutrition">
+        <div class="comp-container">
+            <h2>The Nutrition Showdown: P-nuff vs. The Junk</h2>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Nutritional Metrics</th>
+                        <th style="color: var(--brand-orange); background: #FFE8CC;">🥜 P-nuff Crunch (1 Bag)</th>
+                        <th>🥔 Traditional Potato Chips</th>
+                        <th>🧀 Greasy Cheese Puffs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Plant-Based Protein</b></td>
+                        <td class="highlight">5g Pure Protein</td>
+                        <td>1g Protein</td>
+                        <td>1g Protein</td>
+                    </tr>
+                    <tr>
+                        <td><b>Preparation</b></td>
+                        <td class="highlight">Slow-Baked (Zero Deep Frying)</td>
+                        <td>Fried in Industrial Oil</td>
+                        <td>Deep Fried in Palm Oil</td>
+                    </tr>
+                    <tr>
+                        <td><b>Natural Sugar</b></td>
+                        <td class="highlight">Only 2g Natural Cane Sugar</td>
+                        <td>0-2g</td>
+                        <td>4-5g Added Sugar</td>
+                    </tr>
+                    <tr>
+                        <td><b>Certifications</b></td>
+                        <td class="highlight">Vegan, Certified Gluten-Free, Non-GMO</td>
+                        <td>Contains Gluten</td>
+                        <td>Artificial Flavors & Dairy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--brand-brown);">Your P-nuff Box (1 Item)</h3>
+            <button onclick="toggleCart()" style="font-size: 24px; border: none; background: none; cursor: pointer;">×</button>
+        </div>
+        <div style="margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--brand-green);">
+            🎉 Congratulations! You qualify for FREE USA Delivery!
+            <div class="free-shipping-progress"><div class="free-shipping-fill"></div></div>
+        </div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <div>
+                    <h4 style="font-size: 15px; font-weight: 800; color: var(--brand-brown);">Variety 6-Pack Bundle</h4>
+                    <p style="font-size: 12px; color: #6B7280;" id="cartPlanText">Subscribe & Save (Monthly)</p>
+                    <span style="font-size: 14px; font-weight: 800; color: var(--brand-orange);" id="cartPrice">$21.24</span>
+                </div>
+                <div style="font-size: 24px;">🥜</div>
+            </div>
+        </div>
+        <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 14px; font-weight: 800; font-size: 16px;">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">$21.24</span>
+            </div>
+            <button class="btn-checkout" onclick="alert('Demo: Redirects straight to Shopify 1-Click Checkout with bundle pre-loaded!')">
+                Proceed to Checkout ($21.24) →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentPrice = 21.24;
+        let currentPlan = 'Subscribe & Save (Monthly)';
+
+        function selectPlan(el, price, planName) {
+            document.querySelectorAll('.option-row').forEach(r => r.classList.remove('active'));
+            el.classList.add('active');
+            el.querySelector('input').checked = true;
+            currentPrice = price;
+            currentPlan = planName;
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('headerCartCount').innerText = 'Cart (1) • $' + currentPrice.toFixed(2);
+            document.getElementById('cartPlanText').innerText = currentPlan;
+            document.getElementById('cartPrice').innerText = '$' + currentPrice.toFixed(2);
+            document.getElementById('cartSubtotal').innerText = '$' + currentPrice.toFixed(2);
+        }
+
+        function addToCart() {
+            toggleCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace Modular Systems | High-Conversion Paid Landing Page Prototype</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2540;
+            --primary-accent: #0066CC;
+            --secondary: #FF6600;
+            --secondary-hover: #E65C00;
+            --dark: #0F172A;
+            --gray-light: #F8FAFC;
+            --gray-border: #E2E8F0;
+            --text-muted: #475569;
+            --success: #10B981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background: #FFFFFF; color: var(--dark); line-height: 1.5; }
+        
+        /* Banner */
+        .top-banner {
+            background: #0B1528;
+            color: #E2E8F0;
+            text-align: center;
+            font-size: 13px;
+            padding: 9px 16px;
+            font-weight: 500;
+            border-bottom: 1px solid #1E293B;
+        }
+        .top-banner span { color: #38BDF8; font-weight: 700; }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 48px;
+            border-bottom: 1px solid var(--gray-border);
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+        .logo span { color: var(--primary-accent); }
+        .logo-sub { font-size: 10px; text-transform: uppercase; color: #64748B; font-weight: 700; letter-spacing: 1px; }
+        
+        .header-actions { display: flex; align-items: center; gap: 24px; }
+        .phone-link { font-weight: 700; color: var(--dark); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 6px; }
+        .phone-link span { color: var(--primary-accent); }
+        .btn-quote {
+            background: var(--secondary);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+        }
+        .btn-quote:hover { background: var(--secondary-hover); transform: translateY(-1px); }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 48px 24px 60px;
+            align-items: start;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            color: #1D4ED8;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.18;
+            margin-bottom: 18px;
+            letter-spacing: -0.8px;
+        }
+        .hero h1 span { color: var(--primary-accent); }
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .highlight-item {
+            background: #F8FAFC;
+            border: 1px solid var(--gray-border);
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .highlight-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #DCFCE7;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Quote Calculator Card */
+        .calculator-card {
+            background: #FFFFFF;
+            border: 2px solid #CBD5E1;
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            border-radius: 14px;
+            padding: 28px;
+            position: sticky;
+            top: 90px;
+        }
+        .calc-header {
+            border-bottom: 1px solid var(--gray-border);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+        }
+        .calc-header h3 { font-size: 19px; color: var(--primary); font-weight: 800; display: flex; align-items: center; gap: 8px; }
+        .calc-header p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #334155; }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #0F172A;
+            background: #fff;
+            outline: none;
+            transition: 0.2s;
+        }
+        .form-group select:focus, .form-group input:focus { border-color: var(--primary-accent); box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15); }
+        
+        .calc-result {
+            background: #F1F5F9;
+            border: 1.5px dashed #94A3B8;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calc-result-title { font-size: 11px; text-transform: uppercase; color: #475569; font-weight: 700; letter-spacing: 0.5px; }
+        .calc-price { font-size: 26px; font-weight: 800; color: #0F172A; }
+        .calc-leadtime { font-size: 12px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+        
+        .btn-calc-submit {
+            width: 100%;
+            background: var(--secondary);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25);
+        }
+        .btn-calc-submit:hover { background: var(--secondary-hover); }
+        .guarantee-text { font-size: 12px; text-align: center; color: #64748B; margin-top: 10px; font-weight: 500; }
+
+        /* Trust Logos */
+        .trust-section {
+            background: var(--gray-light);
+            padding: 36px 24px;
+            border-top: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+            text-align: center;
+        }
+        .trust-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #64748B; font-weight: 800; margin-bottom: 22px; }
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            font-weight: 800;
+            color: #94A3B8;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        /* Features */
+        .features-section {
+            max-width: 1180px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+        .features-header { text-align: center; margin-bottom: 48px; }
+        .features-header h2 { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 8px; letter-spacing: -0.5px; }
+        .features-header p { font-size: 16px; color: var(--text-muted); }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .feature-card {
+            background: #fff;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+            transition: 0.2s;
+        }
+        .feature-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.08); }
+        .feature-icon { font-size: 28px; margin-bottom: 16px; }
+        .feature-card h4 { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+        .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-content {
+            background: #fff;
+            max-width: 520px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 36px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            text-align: center;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 18px; right: 20px;
+            font-size: 24px;
+            color: #94A3B8;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Mobile Sticky CTA */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: #fff;
+            border-top: 1px solid var(--gray-border);
+            padding: 12px 20px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.08);
+            z-index: 100;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 960px) {
+            .hero { grid-template-columns: 1fr; padding: 32px 16px; }
+            .hero h1 { font-size: 32px; }
+            .hero-highlights { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .mobile-bar { display: flex; }
+            header { padding: 14px 20px; }
+            .calculator-card { position: static; margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        ⚡ <span>Factory Direct Dispatch:</span> Custom Modular Workbenches Built & Shipped in <span>5-7 Days</span> vs. Industry 6-Week Average
+    </div>
+
+    <header>
+        <div class="logo-box">
+            <div>
+                <div class="logo">WORKPLACE <span>MODULAR</span></div>
+                <div class="logo-sub">Workplace Systems, Inc. • Londonderry, NH</div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a href="tel:8002589700" class="phone-link">📞 Call Direct: <span>(800) 258-9700</span></a>
+            <a href="#instant-quote" class="btn-quote">Request Quick Quote</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="hero-badge">🇺🇸 Engineered in Londonderry, NH since 1948</div>
+            <h1>Heavy-Duty Modular Workbenches <span>Built to Your Exact Spec.</span></h1>
+            <p>Designed specifically for aerospace, medical device manufacturing, and electronics assembly facilities. Eliminate plant floor downtime with commercial-grade 1,000+ lb capacity workstations engineered for lifetime ergonomic performance.</p>
+            
+            <div class="hero-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div>1,000 lb Load Rating</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div>ESD Cleanroom Safe</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">✓</div>
+                    <div>Lifetime Structural Warranty</div>
+                </div>
+            </div>
+
+            <div style="background: #F8FAFC; border-left: 4px solid var(--primary-accent); padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px;">
+                <p style="font-size: 13px; color: #334155; margin: 0; font-weight: 500;">
+                    <b>Verified Lead-Time Guarantee:</b> While competitors take 6 to 8 weeks for custom procurement, our standardized modular components assemble and dispatch from our New Hampshire manufacturing hub in <b>under 7 business days</b>.
+                </p>
+            </div>
+
+            <p style="font-size: 13px; color: #64748B;">Trusted by procurement directors at Boeing, NASA, Abbott Laboratories, Raytheon, and GE Healthcare.</p>
+        </div>
+
+        <div class="hero-right" id="instant-quote">
+            <div class="calculator-card">
+                <div class="calc-header">
+                    <h3>⚡ Instant Workstation Quote Estimator</h3>
+                    <p>Configure your specs below for an immediate factory-direct estimate</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>1. Frame & Workstation Architecture</label>
+                    <select id="benchType" onchange="updateCalc()">
+                        <option value="950">Quad-Drive Motorized Electric Height-Adjustable</option>
+                        <option value="620" selected>Standard Industrial Heavy-Duty Cantilever</option>
+                        <option value="780">ESD Static-Dissipative Cleanroom Station</option>
+                        <option value="850">Packaging & Material Handling Station</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Work Surface Material</label>
+                    <select id="surfaceType" onchange="updateCalc()">
+                        <option value="120" selected>High-Pressure Industrial Laminate (HPL)</option>
+                        <option value="280">1.75" Butcher Block Solid Rock Maple</option>
+                        <option value="340">14-Gauge Heavy 304 Stainless Steel</option>
+                        <option value="220">Static Dissipative (ESD) with Embedded Ground</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Bench Dimensions</label>
+                    <select id="benchSize" onchange="updateCalc()">
+                        <option value="0">48" W x 30" D</option>
+                        <option value="75" selected>60" W x 30" D (Most Popular)</option>
+                        <option value="140">72" W x 36" D</option>
+                        <option value="210">96" W x 36" D</option>
+                    </select>
+                </div>
+
+                <div class="calc-result">
+                    <div>
+                        <div class="calc-result-title">Estimated Factory Price</div>
+                        <div class="calc-price" id="priceDisplay">$815.00</div>
+                    </div>
+                    <div class="calc-leadtime">
+                        ⚡ Ships in 5-7 Days
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 16px;">
+                    <label>Work Email for Official CAD Spec Sheet & Quote</label>
+                    <input type="email" id="userEmail" placeholder="procurement@company.com" required>
+                </div>
+
+                <button class="btn-calc-submit" onclick="submitQuote()">
+                    Receive Formal CAD Drawing & Quote →
+                </button>
+                <div class="guarantee-text">🔒 Factory-direct pricing. Zero sales pressure. 24-hr engineering quote turnaround.</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-section">
+        <div class="trust-title">Trusted By Leading Aerospace, Defense & Life Science Facilities</div>
+        <div class="logos-grid">
+            <div>BOEING</div>
+            <div>NASA</div>
+            <div>RAYTHEON</div>
+            <div>ABBOTT</div>
+            <div>GE HEALTHCARE</div>
+            <div>LOCKHEED MARTIN</div>
+        </div>
+    </div>
+
+    <section class="features-section">
+        <div class="features-header">
+            <h2>Why B2B Procurement Teams Choose Workplace Systems</h2>
+            <p>Built in New Hampshire, USA to outlast conventional overseas knockoffs</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h4>5-Day Fast Ship Guarantee</h4>
+                <p>Standard modular units are in stock and ship from Londonderry, NH within 5-7 business days, saving weeks of project downtime.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>1,000+ lb Welded Steel Strength</h4>
+                <p>Heavy-gauge tubular steel construction certified to hold up to harsh daily laboratory, cleanroom, and aerospace assembly environments.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4>Infinite Modular Adaptability</h4>
+                <p>Swap shelving, lighting, power raceways, and tool balancers in minutes without unbolting or redesigning your entire floor plan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal confirmation -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">×</button>
+            <div style="font-size: 48px; margin-bottom: 12px;">✅</div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0A2540; margin-bottom: 8px;">CAD Spec Sheet & Quote Generated!</h3>
+            <p style="font-size: 14px; color: #475569; margin-bottom: 20px;">
+                Your customized configuration (<span id="modalSummary" style="font-weight: 700; color: #0F172A;">Standard Cantilever • $815.00</span>) has been routed to our Londonderry engineering team.
+            </p>
+            <div style="background: #F1F5F9; border-radius: 8px; padding: 12px; font-size: 13px; color: #334155; margin-bottom: 20px;">
+                Estimated Dispatch: <b>5 Business Days from PO Approval</b>
+            </div>
+            <button class="btn-quote" style="width: 100%; padding: 12px;" onclick="closeModal()">Close Preview</button>
+        </div>
+    </div>
+
+    <div class="mobile-bar">
+        <a href="tel:8002589700" style="font-weight: 700; color: #0A2540; text-decoration: none;">📞 (800) 258-9700</a>
+        <a href="#instant-quote" class="btn-quote" style="padding: 9px 18px; font-size: 13px;">Get Quote</a>
+    </div>
+
+    <script>
+        function updateCalc() {
+            const bench = parseInt(document.getElementById('benchType').value);
+            const surface = parseInt(document.getElementById('surfaceType').value);
+            const size = parseInt(document.getElementById('benchSize').value);
+            const total = bench + surface + size;
+            document.getElementById('priceDisplay').innerText = '$' + total.toFixed(2);
+        }
+
+        function submitQuote() {
+            const email = document.getElementById('userEmail').value;
+            const price = document.getElementById('priceDisplay').innerText;
+            const benchName = document.getElementById('benchType').options[document.getElementById('benchType').selectedIndex].text;
+            
+            document.getElementById('modalSummary').innerText = benchName + ' (' + price + ')';
+            document.getElementById('quoteModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('quoteModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
