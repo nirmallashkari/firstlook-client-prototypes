@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rea's Bistro & Cafe | Square Online Website Preview (Dublin)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Rea's Bistro & Cafe | Square Online Website (Lettuce Leaf Layout)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-green: #2B4C3F;
-            --brand-olive: #4A6B53;
-            --brand-gold: #C5A059;
+            --brand-green: #244234;
+            --brand-olive: #3D614E;
+            --brand-gold: #C59B4E;
+            --brand-gold-hover: #AF8539;
             --cream-bg: #FAF7F2;
             --card-bg: #FFFFFF;
-            --dark: #1E2922;
-            --text-muted: #5A6A60;
-            --border: #E8E2D8;
+            --dark: #1A2820;
+            --text-muted: #57675D;
+            --border: #E6E0D4;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { background: var(--cream-bg); color: var(--dark); line-height: 1.5; }
 
         /* Announcement */
         .top-bar {
             background: var(--brand-green);
             color: #fff;
-            padding: 9px 16px;
+            padding: 10px 16px;
             text-align: center;
             font-size: 13px;
             font-weight: 500;
@@ -41,8 +42,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
         }
+        .brand-box { display: flex; flex-direction: column; }
         .brand-name {
             font-family: 'Playfair Display', serif;
             font-size: 28px;
@@ -51,14 +53,14 @@
             text-decoration: none;
             letter-spacing: -0.5px;
         }
-        .brand-sub { font-size: 11px; font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-gold); font-weight: 700; }
+        .brand-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--brand-gold); font-weight: 700; }
         .header-right { display: flex; align-items: center; gap: 24px; }
         .location-hint { font-size: 13px; color: var(--text-muted); font-weight: 600; }
         .btn-order-header {
             background: var(--brand-green);
             color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
+            padding: 11px 24px;
+            border-radius: 8px;
             font-weight: 700;
             font-size: 14px;
             text-decoration: none;
@@ -73,26 +75,26 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(43, 76, 63, 0.78), rgba(43, 76, 63, 0.88)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(36, 66, 52, 0.82), rgba(36, 66, 52, 0.90)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
             color: #fff;
             text-align: center;
-            padding: 96px 20px;
+            padding: 80px 20px;
         }
-        .hero-inner { max-width: 820px; margin: 0 auto; }
+        .hero-inner { max-width: 840px; margin: 0 auto; }
         .hero-badge {
             display: inline-block;
-            background: rgba(197, 160, 89, 0.25);
+            background: rgba(197, 155, 78, 0.25);
             border: 1px solid var(--brand-gold);
-            color: #F7E7CE;
+            color: #F8E8CC;
             padding: 5px 18px;
             border-radius: 20px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
@@ -101,24 +103,36 @@
             line-height: 1.18;
             margin-bottom: 16px;
         }
-        .hero p { font-size: 17px; color: #E8EFEA; margin-bottom: 28px; line-height: 1.6; }
+        .hero p { font-size: 17px; color: #E8EFEA; margin-bottom: 26px; line-height: 1.6; }
         .hero-cta { display: flex; justify-content: center; gap: 16px; }
         .btn-hero-primary {
             background: var(--brand-gold);
-            color: #1A2E24;
+            color: #17271F;
             padding: 14px 30px;
-            border-radius: 6px;
-            font-weight: 700;
+            border-radius: 8px;
+            font-weight: 800;
             text-decoration: none;
             font-size: 15px;
             transition: 0.2s;
         }
-        .btn-hero-primary:hover { background: #B38E46; }
+        .btn-hero-primary:hover { background: var(--brand-gold-hover); }
+
+        /* Zero-Commission Direct Ordering Strip */
+        .savings-callout-strip {
+            background: #EFF6F1;
+            border-bottom: 1px solid #D1E4D7;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--brand-green);
+            font-weight: 600;
+        }
+        .savings-callout-strip b { color: #17271F; }
 
         /* Category Filter Tabs */
         .category-nav {
-            max-width: 1100px;
-            margin: 44px auto 20px;
+            max-width: 1140px;
+            margin: 40px auto 20px;
             padding: 0 20px;
             display: flex;
             justify-content: center;
@@ -128,10 +142,10 @@
         .cat-btn {
             background: #fff;
             border: 1px solid var(--border);
-            padding: 11px 22px;
+            padding: 10px 22px;
             border-radius: 30px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--dark);
             cursor: pointer;
             transition: all 0.2s;
@@ -140,11 +154,12 @@
             background: var(--brand-green);
             color: #fff;
             border-color: var(--brand-green);
+            box-shadow: 0 4px 10px rgba(36, 66, 52, 0.2);
         }
 
         /* Menu Grid */
         .menu-container {
-            max-width: 1120px;
+            max-width: 1140px;
             margin: 20px auto 60px;
             padding: 0 20px;
         }
@@ -155,6 +170,9 @@
             margin: 32px 0 20px;
             border-bottom: 2px solid var(--border);
             padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
         .items-grid {
             display: grid;
@@ -164,7 +182,7 @@
         .menu-item-card {
             background: #fff;
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 22px;
             display: flex;
             justify-content: space-between;
@@ -172,22 +190,22 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
             transition: 0.2s;
         }
-        .menu-item-card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.06); }
-        .item-details { max-width: 75%; }
-        .item-title { font-size: 17px; font-weight: 700; color: var(--brand-green); margin-bottom: 6px; }
-        .item-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
-        .item-dietary { display: flex; gap: 6px; }
-        .diet-tag { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; background: #E8EFEA; color: var(--brand-green); }
+        .menu-item-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+        .item-details { max-width: 74%; }
+        .item-title { font-size: 17px; font-weight: 800; color: var(--brand-green); margin-bottom: 6px; }
+        .item-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+        .item-dietary { display: flex; gap: 6px; flex-wrap: wrap; }
+        .diet-tag { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; background: #E8EFEA; color: var(--brand-green); }
         .item-right { text-align: right; }
-        .item-price { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+        .item-price { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
         .btn-add {
             background: #F4F1EA;
             border: 1px solid #D5CEBF;
             color: var(--brand-green);
-            padding: 6px 16px;
+            padding: 7px 18px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 800;
             cursor: pointer;
             transition: 0.2s;
         }
@@ -209,6 +227,23 @@
         .order-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
         .order-items { flex-grow: 1; padding: 20px 0; overflow-y: auto; }
         .order-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #F1EFEA; }
+        .pickup-type-toggle {
+            background: #F4F1EA;
+            border-radius: 8px;
+            padding: 4px;
+            display: flex;
+            margin: 14px 0;
+        }
+        .pickup-opt {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .pickup-opt.active { background: var(--brand-green); color: #fff; }
 
         /* Location Footer */
         .info-card {
@@ -216,17 +251,17 @@
             border: 2px solid var(--border);
             border-radius: 16px;
             padding: 40px;
-            max-width: 1120px;
+            max-width: 1140px;
             margin: 0 auto 60px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 40px;
             align-items: center;
         }
         .info-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--brand-green); margin-bottom: 12px; }
         .info-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
 
-        @media (max-width: 800px) {
+        @media (max-width: 840px) {
             .items-grid { grid-template-columns: 1fr; }
             .info-card { grid-template-columns: 1fr; }
             header { padding: 14px 20px; }
@@ -238,13 +273,13 @@
 <body>
 
     <div class="top-bar">
-        ☕ <b>Rea's Bistro & Cafe:</b> Order Online for Direct Collection & Local Delivery in Kimmage, Dublin (D12) | <b>Call: +353 1 492 7684</b>
+        ☕ <b>Rea's Bistro & Cafe:</b> Fresh Dublin Kitchen Prep • Collection & Local Kimmage Delivery | <b>Call: +353 1 492 7684</b>
     </div>
 
     <header>
-        <div>
+        <div class="brand-box">
             <a href="#" class="brand-name">REA'S BISTRO</a>
-            <div class="brand-sub">Kimmage • Dublin</div>
+            <span class="brand-sub">Sundrive Road • Kimmage • Dublin</span>
         </div>
         <div class="header-right">
             <span class="location-hint">📍 Sundrive Shopping Centre</span>
@@ -254,34 +289,44 @@
         </div>
     </header>
 
+    <div class="savings-callout-strip">
+        ✨ <b>Order Direct & Save:</b> Third-party food apps charge up to 30% commission. By ordering here on our official Square site, you save ~€3.50 per order and support Dublin local jobs!
+    </div>
+
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-badge">Square Online Restaurant Layout</div>
+            <div class="hero-badge">Square Online Restaurant Layout • Lettuce Leaf Pattern</div>
             <h1>Artisan Food & Specialty Coffee Handcrafted in Dublin.</h1>
-            <p>From our hearty Traditional Full Irish Breakfast to freshly grilled sourdough paninis and vibrant salads, everything at Rea's is made fresh to order every day.</p>
+            <p>From our hearty Traditional Full Irish Breakfast to freshly grilled crusty sourdough paninis and vibrant salads, everything at Rea's is made fresh to order every day.</p>
             <div class="hero-cta">
-                <a href="#menu" class="btn-hero-primary">Browse Food Offerings →</a>
+                <a href="#menu" class="btn-hero-primary" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Browse Food Offerings →</a>
             </div>
         </div>
     </section>
 
+    <!-- Category Filter Tabs -->
     <div class="category-nav">
-        <button class="cat-btn active" onclick="filterCategory('all', this)">All Food & Drink</button>
+        <button class="cat-btn active" onclick="filterCategory('all', this)">All Food & Drink (12)</button>
         <button class="cat-btn" onclick="filterCategory('breakfast', this)">All Day Breakfast</button>
         <button class="cat-btn" onclick="filterCategory('paninis', this)">Gourmet Paninis</button>
         <button class="cat-btn" onclick="filterCategory('salads', this)">Artisan Salads</button>
-        <button class="cat-btn" onclick="filterCategory('coffee', this)">Specialty Coffee</button>
+        <button class="cat-btn" onclick="filterCategory('coffee', this)">Specialty Coffee & Treats</button>
     </div>
 
     <main class="menu-container" id="menu">
-        <h2 class="section-heading" id="menuHeading">Featured Dublin Specialties</h2>
+        <div class="section-heading">
+            <h2 id="menuHeading">Featured Dublin Specialties</h2>
+            <span style="font-size: 13px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--brand-olive);">Prepared Fresh in Our Kitchen</span>
+        </div>
+
         <div class="items-grid" id="itemsGrid">
             
+            <!-- Item 1 -->
             <div class="menu-item-card" data-cat="breakfast">
                 <div class="item-details">
                     <div class="item-title">Traditional Full Irish Breakfast</div>
-                    <div class="item-desc">Prime Irish rashers, pork sausages, Clonakilty black & white pudding, fried free-range eggs, grilled plum tomato, golden hash brown & buttered batch toast.</div>
-                    <div class="item-dietary"><span class="diet-tag">Customer Favorite</span></div>
+                    <div class="item-desc">Prime Irish rashers, pork sausages, Clonakilty black & white pudding, free-range fried eggs, grilled tomato, golden hash brown & buttered batch toast.</div>
+                    <div class="item-dietary"><span class="diet-tag">Customer Favorite</span><span class="diet-tag">Irish Sourced</span></div>
                 </div>
                 <div class="item-right">
                     <div class="item-price">€11.95</div>
@@ -289,6 +334,7 @@
                 </div>
             </div>
 
+            <!-- Item 2 -->
             <div class="menu-item-card" data-cat="breakfast">
                 <div class="item-details">
                     <div class="item-title">Smashed Avocado & Poached Eggs</div>
@@ -301,6 +347,20 @@
                 </div>
             </div>
 
+            <!-- Item 3 -->
+            <div class="menu-item-card" data-cat="breakfast">
+                <div class="item-details">
+                    <div class="item-title">Buttermilk Pancake Stack</div>
+                    <div class="item-desc">Fluffy golden buttermilk pancakes stacked with crispy smoked bacon, fresh mixed berries, and 100% pure Canadian maple syrup.</div>
+                    <div class="item-dietary"><span class="diet-tag">Sweet Breakfast</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€8.50</div>
+                    <button class="btn-add" onclick="addToTray('Buttermilk Pancake Stack', 8.50)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
             <div class="menu-item-card" data-cat="paninis">
                 <div class="item-details">
                     <div class="item-title">The Kimmage Club Sourdough Panini</div>
@@ -313,18 +373,72 @@
                 </div>
             </div>
 
-            <div class="menu-item-card" data-cat="salads">
+            <!-- Item 5 -->
+            <div class="menu-item-card" data-cat="paninis">
                 <div class="item-details">
-                    <div class="item-title">Warm Goats Cheese & Walnut Salad</div>
-                    <div class="item-desc">Grilled Ardsallagh goats cheese croutons, baby mixed leaves, roasted red peppers, candied walnuts, crisp green apple slices, and honey balsamic glaze.</div>
-                    <div class="item-dietary"><span class="diet-tag">Gluten-Free Option</span></div>
+                    <div class="item-title">Dubliner Cheddar & Honey Ham Melt</div>
+                    <div class="item-desc">Slow-baked Irish ham, sharp vintage Dubliner red cheddar, Ballymaloe relish, and red onion on toasted crusty sourdough.</div>
+                    <div class="item-dietary"><span class="diet-tag">Irish Classic</span></div>
                 </div>
                 <div class="item-right">
-                    <div class="item-price">€10.50</div>
-                    <button class="btn-add" onclick="addToTray('Goats Cheese Salad', 10.50)">+ Add</button>
+                    <div class="item-price">€7.95</div>
+                    <button class="btn-add" onclick="addToTray('Dubliner Cheddar Melt', 7.95)">+ Add</button>
                 </div>
             </div>
 
+            <!-- Item 6 -->
+            <div class="menu-item-card" data-cat="paninis">
+                <div class="item-details">
+                    <div class="item-title">Cajun Spiced Chicken & Avocado Melt</div>
+                    <div class="item-desc">Warm roasted Cajun-seasoned chicken strips, fresh sliced avocado, Swiss Emmental cheese, baby rocket, and chipotle lime drizzle.</div>
+                    <div class="item-dietary"><span class="diet-tag">Mildly Spiced</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€8.50</div>
+                    <button class="btn-add" onclick="addToTray('Cajun Chicken Panini', 8.50)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="menu-item-card" data-cat="salads">
+                <div class="item-details">
+                    <div class="item-title">Warm Ardsallagh Goats Cheese Salad</div>
+                    <div class="item-desc">Grilled Cork Ardsallagh goats cheese croutons, baby salad leaves, roasted red peppers, candied walnuts, green apple slices, and honey balsamic glaze.</div>
+                    <div class="item-dietary"><span class="diet-tag">Vegetarian</span><span class="diet-tag">Gluten-Free Option</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€10.50</div>
+                    <button class="btn-add" onclick="addToTray('Ardsallagh Goats Cheese Salad', 10.50)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="menu-item-card" data-cat="salads">
+                <div class="item-details">
+                    <div class="item-title">Superfood Quinoa & Roasted Veg Bowl</div>
+                    <div class="item-desc">Organic tri-color quinoa, roast butternut squash, broccoli florets, baby spinach, pomegranate pearls, pumpkin seeds, and zesty tahini dressing.</div>
+                    <div class="item-dietary"><span class="diet-tag">Vegan</span><span class="diet-tag">Gluten-Free</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€9.95</div>
+                    <button class="btn-add" onclick="addToTray('Superfood Quinoa Bowl', 9.95)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="menu-item-card" data-cat="salads">
+                <div class="item-details">
+                    <div class="item-title">Classic Caesar Salad with Roast Chicken</div>
+                    <div class="item-desc">Crisp Romaine lettuce hearts, warm sliced chicken breast, smoked bacon lardons, shaved aged Parmesan, sourdough croutons, and house Caesar dressing.</div>
+                    <div class="item-dietary"><span class="diet-tag">Classic</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€9.50</div>
+                    <button class="btn-add" onclick="addToTray('Classic Chicken Caesar', 9.50)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 10 -->
             <div class="menu-item-card" data-cat="coffee">
                 <div class="item-details">
                     <div class="item-title">Specialty Double Flat White</div>
@@ -337,15 +451,47 @@
                 </div>
             </div>
 
+            <!-- Item 11 -->
+            <div class="menu-item-card" data-cat="coffee">
+                <div class="item-details">
+                    <div class="item-title">Iced Caramel Latte (Single Origin)</div>
+                    <div class="item-desc">Chilled single origin espresso over ice with fresh whole milk and Madagascar vanilla bean caramel swirl.</div>
+                    <div class="item-dietary"><span class="diet-tag">Cold Beverage</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€4.20</div>
+                    <button class="btn-add" onclick="addToTray('Iced Caramel Latte', 4.20)">+ Add</button>
+                </div>
+            </div>
+
+            <!-- Item 12 -->
+            <div class="menu-item-card" data-cat="coffee">
+                <div class="item-details">
+                    <div class="item-title">Freshly Baked Almond Croissant</div>
+                    <div class="item-desc">Buttery flaky French pastry filled with rich almond frangipane cream and topped with toasted sliced almonds and powdered sugar.</div>
+                    <div class="item-dietary"><span class="diet-tag">Baked In-House Daily</span></div>
+                </div>
+                <div class="item-right">
+                    <div class="item-price">€3.50</div>
+                    <button class="btn-add" onclick="addToTray('Almond Croissant', 3.50)">+ Add</button>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- Order Drawer -->
+    <!-- Order Tray Drawer -->
     <div class="order-drawer" id="orderDrawer">
         <div class="order-header">
             <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brand-green);">Rea's Order Tray</h3>
             <button onclick="toggleOrderDrawer()" style="font-size: 24px; border: none; background: none; cursor: pointer;">×</button>
         </div>
+        
+        <div class="pickup-type-toggle">
+            <div class="pickup-opt active" onclick="setPickupType(this, 'Pickup at Bistro (15-20 Mins)')">🏃 Collection (15m)</div>
+            <div class="pickup-opt" onclick="setPickupType(this, 'Local Dublin 12 Delivery')">🛵 Local Delivery</div>
+        </div>
+
         <div class="order-items" id="orderItemsList">
             <div style="text-align: center; color: var(--text-muted); margin-top: 40px;">Your order tray is empty. Click "+ Add" on any menu item!</div>
         </div>
@@ -354,28 +500,39 @@
                 <span>Total Amount:</span>
                 <span id="trayTotal">€0.00</span>
             </div>
-            <button class="btn-order-header" style="width: 100%; justify-content: center; padding: 15px; font-size: 16px;" onclick="alert('Demo: Redirects to Square Online Kitchen POS payment!')">
-                Confirm & Send to Kitchen POS →
+            <button class="btn-order-header" style="width: 100%; justify-content: center; padding: 15px; font-size: 16px;" onclick="confirmOrder()">
+                Send Directly to Kitchen POS →
             </button>
-            <div style="font-size: 12px; text-align: center; color: var(--text-muted); margin-top: 8px;">Direct pickup at Sundrive Shopping Centre in 15-20 mins.</div>
+            <div style="font-size: 12px; text-align: center; color: var(--text-muted); margin-top: 8px;">Order prints instantly on Kitchen Square Terminal at Sundrive.</div>
         </div>
     </div>
 
+    <!-- Location & Direct Contact Card -->
     <div class="info-card">
         <div>
             <h3>Visit Rea's Bistro in Kimmage</h3>
             <p><b>Address:</b> Unit 7a, Sundrive Shopping Centre, Kimmage, Dublin D12 H516, Ireland</p>
             <p><b>Direct Bistro Phone:</b> <a href="tel:+35314927684" style="color: var(--brand-green); font-weight: 700;">+353 1 492 7684</a></p>
             <p><b>Kitchen Hours:</b> Mon – Sat: 8:00 AM – 5:00 PM | Sun: 9:00 AM – 4:00 PM</p>
-            <p style="margin-top: 14px; font-size: 13px; color: var(--brand-olive); font-weight: 600;">✨ Zero Commission Direct Ordering: Order direct on our official website for the best prices and fresh kitchen preparation.</p>
+            <p style="margin-top: 14px; font-size: 13px; color: var(--brand-olive); font-weight: 600;">✨ Owner & Manager: Réamonn Rea | Free Parking at Sundrive Shopping Centre</p>
         </div>
-        <div style="background: #E8EFEA; border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--brand-green); border: 2px dashed #C0D4C7;">
-            📍 Google Maps Embed / Live Kimmage Pickup Location
+        <div style="background: #E8EFEA; border-radius: 12px; padding: 24px; text-align: center; border: 1.5px solid #C0D4C7;">
+            <div style="font-size: 32px; margin-bottom: 8px;">📍</div>
+            <div style="font-weight: 800; color: var(--brand-green); font-size: 15px; margin-bottom: 4px;">Sundrive Shopping Centre, Kimmage</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">Dublin 12, Ireland (5 mins from Harolds Cross)</div>
+            <a href="https://maps.google.com/?q=Sundrive+Shopping+Centre+Dublin" target="_blank" style="display: inline-block; background: var(--brand-green); color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: 700; text-decoration: none;">Get Google Maps Directions →</a>
         </div>
     </div>
 
     <script>
         let tray = [];
+        let pickupType = 'Pickup at Bistro (15-20 Mins)';
+
+        function setPickupType(el, type) {
+            document.querySelectorAll('.pickup-opt').forEach(o => o.classList.remove('active'));
+            el.classList.add('active');
+            pickupType = type;
+        }
 
         function filterCategory(cat, btn) {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -415,11 +572,11 @@
                     <div class="order-item-row">
                         <div>
                             <div style="font-weight: 700; font-size: 14px; color: var(--brand-green);">${item.name}</div>
-                            <div style="font-size: 12px; color: #666;">Fresh Kitchen Prep</div>
+                            <div style="font-size: 12px; color: #666;">Fresh Kitchen Preparation</div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <span style="font-weight: 700; font-size: 14px;">€${item.price.toFixed(2)}</span>
-                            <button onclick="removeItem(${idx})" style="background:none; border:none; color:#C53030; cursor:pointer; font-weight:bold;">×</button>
+                            <button onclick="removeItem(${idx})" style="background:none; border:none; color:#C53030; cursor:pointer; font-weight:bold; font-size: 16px;">×</button>
                         </div>
                     </div>
                 `;
@@ -440,6 +597,14 @@
             } else {
                 drawer.classList.toggle('open');
             }
+        }
+
+        function confirmOrder() {
+            if (tray.length === 0) {
+                alert('Your tray is empty! Please add dishes from the menu first.');
+                return;
+            }
+            alert(`✅ Order Confirmed for ${pickupType}!\nTotal: ${document.getElementById('trayTotal').innerText}\nOrder sent directly to Square Kitchen Terminal printer at Rea's Bistro Sundrive!`);
         }
     </script>
 </body>

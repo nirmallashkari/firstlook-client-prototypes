@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workplace Modular Systems | High-Conversion Paid Landing Page Prototype</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Workplace Modular Systems | High-Conversion UX Wireframe Prototype (All 3 Views)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0A2540;
@@ -13,26 +13,75 @@
             --secondary-hover: #E65C00;
             --dark: #0F172A;
             --gray-light: #F8FAFC;
-            --gray-border: #E2E8F0;
+            --gray-border: #CBD5E1;
             --text-muted: #475569;
             --success: #10B981;
+            --annotation: #8B5CF6;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background: #FFFFFF; color: var(--dark); line-height: 1.5; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background: #F8FAFC; color: var(--dark); line-height: 1.5; }
         
-        /* Banner */
-        .top-banner {
-            background: #0B1528;
+        /* Figma Wireframe Controller Bar */
+        .figma-toolbar {
+            background: #1E293B;
             color: #E2E8F0;
-            text-align: center;
+            padding: 10px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-size: 13px;
-            padding: 9px 16px;
-            font-weight: 500;
-            border-bottom: 1px solid #1E293B;
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }
-        .top-banner span { color: #38BDF8; font-weight: 700; }
+        .figma-info { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+        .figma-badge { background: #3B82F6; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+        .wireframe-nav-tabs { display: flex; gap: 6px; }
+        .wf-tab {
+            background: #334155;
+            color: #CBD5E1;
+            border: 1px solid #475569;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .wf-tab.active { background: #0066CC; color: #fff; border-color: #38BDF8; box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+        .btn-toggle-notes {
+            background: rgba(139, 92, 246, 0.2);
+            color: #C4B5FD;
+            border: 1px solid #8B5CF6;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-toggle-notes.active { background: #8B5CF6; color: #fff; }
 
-        /* Header */
+        /* Annotation Callouts */
+        .ux-note {
+            display: none;
+            background: #FAF5FF;
+            border: 1.5px dashed var(--annotation);
+            color: #581C87;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+        }
+        .ux-note b { color: #6B21A8; }
+        body.show-annotations .ux-note { display: block; }
+
+        /* Site Header */
         header {
             display: flex;
             align-items: center;
@@ -40,12 +89,9 @@
             padding: 16px 48px;
             border-bottom: 1px solid var(--gray-border);
             background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
-        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
         .logo { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
         .logo span { color: var(--primary-accent); }
         .logo-sub { font-size: 10px; text-transform: uppercase; color: #64748B; font-weight: 700; letter-spacing: 1px; }
@@ -56,7 +102,7 @@
         .btn-quote {
             background: var(--secondary);
             color: #fff;
-            padding: 10px 24px;
+            padding: 11px 24px;
             border-radius: 6px;
             font-weight: 700;
             font-size: 14px;
@@ -68,6 +114,21 @@
         }
         .btn-quote:hover { background: var(--secondary-hover); transform: translateY(-1px); }
 
+        /* Container Views */
+        .wireframe-view { display: none; }
+        .wireframe-view.active { display: block; }
+
+        /* Top Notification */
+        .top-banner {
+            background: #0B1528;
+            color: #E2E8F0;
+            text-align: center;
+            font-size: 13px;
+            padding: 10px 16px;
+            font-weight: 500;
+        }
+        .top-banner span { color: #38BDF8; font-weight: 700; }
+
         /* Hero */
         .hero {
             display: grid;
@@ -75,7 +136,7 @@
             gap: 40px;
             max-width: 1240px;
             margin: 0 auto;
-            padding: 48px 24px 60px;
+            padding: 44px 24px 50px;
             align-items: start;
         }
         .hero-badge {
@@ -89,16 +150,16 @@
             font-weight: 700;
             padding: 5px 14px;
             border-radius: 20px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .hero h1 {
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 800;
             color: var(--primary);
             line-height: 1.18;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             letter-spacing: -0.8px;
         }
         .hero h1 span { color: var(--primary-accent); }
@@ -111,11 +172,11 @@
         .hero-highlights {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 30px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
         .highlight-item {
-            background: #F8FAFC;
+            background: #FFFFFF;
             border: 1px solid var(--gray-border);
             padding: 12px;
             border-radius: 8px;
@@ -139,6 +200,42 @@
             flex-shrink: 0;
         }
 
+        /* Interactive Workstation Visualizer */
+        .visualizer-box {
+            background: #FFFFFF;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+        }
+        .visualizer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 10px;
+        }
+        .visualizer-title { font-size: 13px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+        .cad-badge { background: #F1F5F9; color: #475569; padding: 3px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+        .schematic-svg-container {
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+        .schematic-caption {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #94A3B8;
+        }
+        .schematic-caption span b { color: #38BDF8; }
+
         /* Quote Calculator Card */
         .calculator-card {
             background: #FFFFFF;
@@ -147,7 +244,7 @@
             border-radius: 14px;
             padding: 28px;
             position: sticky;
-            top: 90px;
+            top: 75px;
         }
         .calc-header {
             border-bottom: 1px solid var(--gray-border);
@@ -172,8 +269,8 @@
         .form-group select:focus, .form-group input:focus { border-color: var(--primary-accent); box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15); }
         
         .calc-result {
-            background: #F1F5F9;
-            border: 1.5px dashed #94A3B8;
+            background: #F8FAFC;
+            border: 2px dashed #94A3B8;
             border-radius: 10px;
             padding: 16px;
             margin-top: 18px;
@@ -182,7 +279,7 @@
             align-items: center;
         }
         .calc-result-title { font-size: 11px; text-transform: uppercase; color: #475569; font-weight: 700; letter-spacing: 0.5px; }
-        .calc-price { font-size: 26px; font-weight: 800; color: #0F172A; }
+        .calc-price { font-size: 28px; font-weight: 800; color: #0F172A; }
         .calc-leadtime { font-size: 12px; color: var(--success); font-weight: 700; display: flex; align-items: center; gap: 4px; }
         
         .btn-calc-submit {
@@ -204,7 +301,7 @@
 
         /* Trust Logos */
         .trust-section {
-            background: var(--gray-light);
+            background: #FFFFFF;
             padding: 36px 24px;
             border-top: 1px solid var(--gray-border);
             border-bottom: 1px solid var(--gray-border);
@@ -223,20 +320,36 @@
             letter-spacing: 1px;
         }
 
+        /* Testimonial Banner */
+        .case-study-strip {
+            max-width: 1180px;
+            margin: 40px auto;
+            padding: 24px 32px;
+            background: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        .quote-icon { font-size: 40px; color: #3B82F6; line-height: 1; }
+        .quote-body { font-size: 14px; color: #1E3A8A; line-height: 1.6; }
+        .quote-author { font-weight: 800; color: #172554; margin-top: 6px; font-size: 13px; }
+
         /* Features */
         .features-section {
             max-width: 1180px;
-            margin: 64px auto;
+            margin: 48px auto;
             padding: 0 24px;
         }
-        .features-header { text-align: center; margin-bottom: 48px; }
+        .features-header { text-align: center; margin-bottom: 40px; }
         .features-header h2 { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 8px; letter-spacing: -0.5px; }
         .features-header p { font-size: 16px; color: var(--text-muted); }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 28px;
         }
         .feature-card {
             background: #fff;
@@ -250,6 +363,68 @@
         .feature-icon { font-size: 28px; margin-bottom: 16px; }
         .feature-card h4 { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
         .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+        /* Wireframe 2: Configurator Flow */
+        .configurator-view-container {
+            max-width: 1180px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+        .cfg-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+        .cfg-panel {
+            background: #fff;
+            border: 1px solid var(--gray-border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .step-pill {
+            display: inline-block;
+            background: #EFF6FF;
+            color: #1D4ED8;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .options-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .option-choice-card {
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .option-choice-card.selected { border-color: var(--primary-accent); background: #F0F7FF; }
+        .option-choice-card h5 { font-size: 15px; font-weight: 800; margin-bottom: 4px; color: var(--primary); }
+        .option-choice-card p { font-size: 12px; color: var(--text-muted); }
+
+        /* Wireframe 3: Spec Matrix */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--gray-border);
+            margin-top: 24px;
+        }
+        .matrix-table th, .matrix-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-border);
+            font-size: 14px;
+        }
+        .matrix-table th { background: var(--primary); color: #fff; font-weight: 700; }
 
         /* Modal */
         .modal-overlay {
@@ -302,13 +477,31 @@
             .hero h1 { font-size: 32px; }
             .hero-highlights { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
+            .cfg-grid { grid-template-columns: 1fr; }
             .mobile-bar { display: flex; }
             header { padding: 14px 20px; }
             .calculator-card { position: static; margin-top: 20px; }
+            .figma-toolbar { flex-direction: column; gap: 8px; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Figma Wireframe Toolbar Switcher -->
+    <div class="figma-toolbar">
+        <div class="figma-info">
+            <span class="figma-badge">FIGMA PROTOTYPE REVIEW</span>
+            <span>Workplace Systems, Inc. • Londonderry, NH</span>
+        </div>
+        <div class="wireframe-nav-tabs">
+            <button class="wf-tab active" onclick="switchView('wf1', this)">Wireframe #1: Paid Ad LP</button>
+            <button class="wf-tab" onclick="switchView('wf2', this)">Wireframe #2: Configurator Flow</button>
+            <button class="wf-tab" onclick="switchView('wf3', this)">Wireframe #3: Spec Matrix & RFQ</button>
+        </div>
+        <button class="btn-toggle-notes" onclick="toggleAnnotations(this)">
+            💡 <span>Toggle UX Design Rationale</span>
+        </button>
+    </div>
 
     <div class="top-banner">
         ⚡ <span>Factory Direct Dispatch:</span> Custom Modular Workbenches Built & Shipped in <span>5-7 Days</span> vs. Industry 6-Week Average
@@ -318,182 +511,413 @@
         <div class="logo-box">
             <div>
                 <div class="logo">WORKPLACE <span>MODULAR</span></div>
-                <div class="logo-sub">Workplace Systems, Inc. • Londonderry, NH</div>
+                <div class="logo-sub">Workplace Systems, Inc. • Londonderry, NH (Est. 1948)</div>
             </div>
         </div>
         <div class="header-actions">
-            <a href="tel:8002589700" class="phone-link">📞 Call Direct: <span>(800) 258-9700</span></a>
-            <a href="#instant-quote" class="btn-quote">Request Quick Quote</a>
+            <a href="tel:8002589700" class="phone-link">📞 Call Engineering: <span>(800) 258-9700</span></a>
+            <a href="#instant-quote" class="btn-quote" onclick="document.getElementById('instant-quote').scrollIntoView({behavior: 'smooth'})">Request Instant Quote</a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-left">
-            <div class="hero-badge">🇺🇸 Engineered in Londonderry, NH since 1948</div>
-            <h1>Heavy-Duty Modular Workbenches <span>Built to Your Exact Spec.</span></h1>
-            <p>Designed specifically for aerospace, medical device manufacturing, and electronics assembly facilities. Eliminate plant floor downtime with commercial-grade 1,000+ lb capacity workstations engineered for lifetime ergonomic performance.</p>
-            
-            <div class="hero-highlights">
-                <div class="highlight-item">
-                    <div class="highlight-icon">✓</div>
-                    <div>1,000 lb Load Rating</div>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-icon">✓</div>
-                    <div>ESD Cleanroom Safe</div>
-                </div>
-                <div class="highlight-item">
-                    <div class="highlight-icon">✓</div>
-                    <div>Lifetime Structural Warranty</div>
-                </div>
+    <!-- ==================== VIEW 1: PAID CAMPAIGN LANDING PAGE ==================== -->
+    <div id="wf1" class="wireframe-view active">
+        <div style="max-width: 1240px; margin: 16px auto 0; padding: 0 24px;">
+            <div class="ux-note">
+                <b>🎯 Wireframe #1 Strategic Intent:</b> Specifically engineered to crush the client's current <b>71% bounce rate</b> on Google Ads. Places an interactive 3-step quote configurator directly above the fold, eliminates confusing subpage rabbit holes, and reinforces 5-day dispatch vs 6-week industry lead time.
             </div>
-
-            <div style="background: #F8FAFC; border-left: 4px solid var(--primary-accent); padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px;">
-                <p style="font-size: 13px; color: #334155; margin: 0; font-weight: 500;">
-                    <b>Verified Lead-Time Guarantee:</b> While competitors take 6 to 8 weeks for custom procurement, our standardized modular components assemble and dispatch from our New Hampshire manufacturing hub in <b>under 7 business days</b>.
-                </p>
-            </div>
-
-            <p style="font-size: 13px; color: #64748B;">Trusted by procurement directors at Boeing, NASA, Abbott Laboratories, Raytheon, and GE Healthcare.</p>
         </div>
 
-        <div class="hero-right" id="instant-quote">
-            <div class="calculator-card">
-                <div class="calc-header">
-                    <h3>⚡ Instant Workstation Quote Estimator</h3>
-                    <p>Configure your specs below for an immediate factory-direct estimate</p>
-                </div>
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-badge">🇺🇸 Engineered in Londonderry, NH Since 1948</div>
+                <h1>Heavy-Duty Modular Workbenches <span>Built to Your Exact Spec.</span></h1>
+                <p>Designed specifically for aerospace, defense, medical device manufacturing, and electronics cleanrooms. Eliminate plant floor downtime with commercial-grade 1,000+ lb capacity workstations engineered for lifetime ergonomic performance.</p>
                 
-                <div class="form-group">
-                    <label>1. Frame & Workstation Architecture</label>
-                    <select id="benchType" onchange="updateCalc()">
-                        <option value="950">Quad-Drive Motorized Electric Height-Adjustable</option>
-                        <option value="620" selected>Standard Industrial Heavy-Duty Cantilever</option>
-                        <option value="780">ESD Static-Dissipative Cleanroom Station</option>
-                        <option value="850">Packaging & Material Handling Station</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>2. Work Surface Material</label>
-                    <select id="surfaceType" onchange="updateCalc()">
-                        <option value="120" selected>High-Pressure Industrial Laminate (HPL)</option>
-                        <option value="280">1.75" Butcher Block Solid Rock Maple</option>
-                        <option value="340">14-Gauge Heavy 304 Stainless Steel</option>
-                        <option value="220">Static Dissipative (ESD) with Embedded Ground</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>3. Bench Dimensions</label>
-                    <select id="benchSize" onchange="updateCalc()">
-                        <option value="0">48" W x 30" D</option>
-                        <option value="75" selected>60" W x 30" D (Most Popular)</option>
-                        <option value="140">72" W x 36" D</option>
-                        <option value="210">96" W x 36" D</option>
-                    </select>
-                </div>
-
-                <div class="calc-result">
-                    <div>
-                        <div class="calc-result-title">Estimated Factory Price</div>
-                        <div class="calc-price" id="priceDisplay">$815.00</div>
+                <div class="hero-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div>1,000 lb Load Rating</div>
                     </div>
-                    <div class="calc-leadtime">
-                        ⚡ Ships in 5-7 Days
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div>ESD Cleanroom Safe</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">✓</div>
+                        <div>Lifetime Structural Warranty</div>
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-top: 16px;">
-                    <label>Work Email for Official CAD Spec Sheet & Quote</label>
-                    <input type="email" id="userEmail" placeholder="procurement@company.com" required>
+                <!-- Interactive Workstation Visualizer SVG Blueprint -->
+                <div class="visualizer-box">
+                    <div class="visualizer-header">
+                        <span class="visualizer-title">📐 Live Schematic Engineering Blueprint</span>
+                        <span class="cad-badge" id="cadCode">CAD-WMS-HD6030</span>
+                    </div>
+                    <div class="schematic-svg-container">
+                        <svg width="100%" height="180" viewBox="0 0 500 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Overhead LED Fixture -->
+                            <rect x="130" y="15" width="240" height="8" rx="2" fill="#38BDF8" opacity="0.9"/>
+                            <line x1="170" y1="23" x2="170" y2="45" stroke="#64748B" stroke-width="2"/>
+                            <line x1="330" y1="23" x2="330" y2="45" stroke="#64748B" stroke-width="2"/>
+                            <!-- Upper Modular Shelf -->
+                            <rect x="110" y="45" width="280" height="10" rx="2" fill="#475569"/>
+                            <rect x="120" y="58" width="60" height="14" rx="2" fill="#334155"/>
+                            <rect x="190" y="58" width="60" height="14" rx="2" fill="#334155"/>
+                            <rect x="260" y="58" width="60" height="14" rx="2" fill="#334155"/>
+                            <!-- Work Surface -->
+                            <rect id="svgSurface" x="80" y="85" width="340" height="14" rx="3" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+                            <!-- Tubular Steel Legs & Frame -->
+                            <rect x="100" y="99" width="16" height="70" fill="#1E293B"/>
+                            <rect x="384" y="99" width="16" height="70" fill="#1E293B"/>
+                            <line x1="116" y1="135" x2="384" y2="135" stroke="#334155" stroke-width="6"/>
+                            <!-- Uprights -->
+                            <rect x="120" y="25" width="10" height="60" fill="#334155"/>
+                            <rect x="370" y="25" width="10" height="60" fill="#334155"/>
+                            <!-- Foot Levelers -->
+                            <circle cx="108" cy="172" r="5" fill="#38BDF8"/>
+                            <circle cx="392" cy="172" r="5" fill="#38BDF8"/>
+                            <!-- Dimension Annotation in SVG -->
+                            <line x1="80" y1="105" x2="420" y2="105" stroke="#38BDF8" stroke-width="1" stroke-dasharray="3 3"/>
+                            <text x="250" y="125" fill="#38BDF8" font-size="10" font-family="JetBrains Mono" text-anchor="middle" id="svgDimText">SPAN: 60" W x 30" D</text>
+                        </svg>
+                    </div>
+                    <div class="schematic-caption">
+                        <span>TYPE: <b id="lblBenchType">Heavy-Duty Cantilever</b></span>
+                        <span>TOP: <b id="lblSurface">HPL Industrial Laminate</b></span>
+                        <span>LEAD-TIME: <b style="color: #10B981;">5-7 DAYS</b></span>
+                    </div>
                 </div>
 
-                <button class="btn-calc-submit" onclick="submitQuote()">
-                    Receive Formal CAD Drawing & Quote →
-                </button>
-                <div class="guarantee-text">🔒 Factory-direct pricing. Zero sales pressure. 24-hr engineering quote turnaround.</div>
+                <div style="background: #FFFFFF; border-left: 4px solid var(--primary-accent); padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px; border-top: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0;">
+                    <p style="font-size: 13px; color: #334155; margin: 0; font-weight: 500;">
+                        <b>Verified Lead-Time Guarantee:</b> While competitors take 6 to 8 weeks for custom procurement, our standardized modular components assemble and dispatch from Londonderry, NH in <b>under 7 business days</b>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="hero-right" id="instant-quote">
+                <div class="calculator-card">
+                    <div class="calc-header">
+                        <h3>⚡ 3-Click Factory Quote Estimator</h3>
+                        <p>Instant pricing without navigating cumbersome subpages</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>1. Frame Architecture</label>
+                        <select id="benchType" onchange="updateCalc()">
+                            <option value="620" selected>Standard Heavy-Duty Cantilever Frame ($620)</option>
+                            <option value="950">Quad-Drive Motorized Electric Height-Adjustable ($950)</option>
+                            <option value="780">ESD Static-Dissipative Cleanroom Station ($780)</option>
+                            <option value="850">Packaging & Material Handling Station ($850)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Work Surface Material</label>
+                        <select id="surfaceType" onchange="updateCalc()">
+                            <option value="120" selected>High-Pressure Industrial Laminate (HPL)</option>
+                            <option value="280">1.75" Butcher Block Solid Rock Maple</option>
+                            <option value="340">14-Gauge Heavy 304 Stainless Steel</option>
+                            <option value="220">Static Dissipative (ESD) Grounded Laminate</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. Bench Dimensions</label>
+                        <select id="benchSize" onchange="updateCalc()">
+                            <option value="0">48" W x 30" D</option>
+                            <option value="75" selected>60" W x 30" D (Most Popular)</option>
+                            <option value="140">72" W x 36" D</option>
+                            <option value="210">96" W x 36" D</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-result">
+                        <div>
+                            <div class="calc-result-title">Estimated Factory Price</div>
+                            <div class="calc-price" id="priceDisplay">$815.00</div>
+                        </div>
+                        <div class="calc-leadtime">
+                            ⚡ Ships in 5-7 Days
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 16px;">
+                        <label>Work Email for Official Engineering Spec Sheet & CAD</label>
+                        <input type="email" id="userEmail" placeholder="procurement@company.com" required>
+                    </div>
+
+                    <button class="btn-calc-submit" onclick="submitQuote()">
+                        Receive Formal CAD Drawing & Quote →
+                    </button>
+                    <div class="guarantee-text">🔒 Factory-direct pricing. Zero sales pressure. 24-hr engineering turnaround.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar -->
+        <div class="trust-section">
+            <div class="trust-title">Trusted By Leading Aerospace, Defense & Life Science Facilities</div>
+            <div class="logos-grid">
+                <div>BOEING</div>
+                <div>NASA</div>
+                <div>RAYTHEON</div>
+                <div>ABBOTT</div>
+                <div>GE HEALTHCARE</div>
+                <div>LOCKHEED MARTIN</div>
             </div>
         </div>
-    </section>
 
-    <div class="trust-section">
-        <div class="trust-title">Trusted By Leading Aerospace, Defense & Life Science Facilities</div>
-        <div class="logos-grid">
-            <div>BOEING</div>
-            <div>NASA</div>
-            <div>RAYTHEON</div>
-            <div>ABBOTT</div>
-            <div>GE HEALTHCARE</div>
-            <div>LOCKHEED MARTIN</div>
+        <!-- Case Study Testimonial Strip -->
+        <div class="case-study-strip">
+            <div class="quote-icon">❝</div>
+            <div>
+                <div class="quote-body">
+                    "Workplace Systems solved our plant expansion bottleneck. When standard suppliers quoted 8 weeks for specialized assembly benches, Workplace shipped 42 custom workstations in 6 business days. Build quality and ESD grounding were flawless."
+                </div>
+                <div class="quote-author">— Mark Henderson, Director of Advanced Manufacturing, Raytheon Space & Defense</div>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <div class="features-header">
+                <h2>Why Procurement Teams Standardize on Workplace Systems</h2>
+                <p>Engineered in New Hampshire, USA to outlast conventional commercial alternatives</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h4>5-Day Fast Ship Guarantee</h4>
+                    <p>Standard modular units are in stock and ship from Londonderry, NH within 5-7 business days, saving weeks of project downtime.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h4>1,000+ lb Welded Steel Strength</h4>
+                    <p>Heavy-gauge tubular steel construction certified to hold up to harsh daily laboratory, cleanroom, and aerospace assembly environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h4>Infinite Modular Adaptability</h4>
+                    <p>Swap shelving, lighting, power raceways, and tool balancers in minutes without unbolting or redesigning your entire floor plan.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== VIEW 2: MODULAR CONFIGURATOR FLOW ==================== -->
+    <div id="wf2" class="wireframe-view">
+        <div class="configurator-view-container">
+            <div class="ux-note">
+                <b>🎯 Wireframe #2 Strategic Intent:</b> Provides enterprise procurement agents and facility managers an interactive step-by-step modular accessory builder (power raceways, LED gantry, ESD grounding, parts bins) with live weight capacity and pricing feedback.
+            </div>
+
+            <div class="cfg-grid">
+                <div class="cfg-panel">
+                    <span class="step-pill">STEP 2 OF 4: MODULAR ACCESSORY ATTACHMENTS</span>
+                    <h3 style="font-size: 24px; color: var(--primary); font-weight: 800; margin-bottom: 8px;">Select Workstation Accessories</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">All accessories bolt into pre-machined vertical channels with zero field drilling required.</p>
+
+                    <div class="options-cards-grid">
+                        <div class="option-choice-card selected" onclick="toggleAcc(this, 145)">
+                            <h5>⚡ Overhead LED Task Luminaire</h5>
+                            <p>5000K neutral white daylight, adjustable dimming, zero flicker for micro-assembly inspection.</p>
+                            <span style="font-size: 13px; font-weight: 800; color: var(--primary-accent); margin-top: 8px; display: block;">+$145</span>
+                        </div>
+                        <div class="option-choice-card selected" onclick="toggleAcc(this, 110)">
+                            <h5>🔌 8-Outlet Industrial Power Raceway</h5>
+                            <p>15A/120V integrated surge suppression with master toggle and 10ft heavy cable.</p>
+                            <span style="font-size: 13px; font-weight: 800; color: var(--primary-accent); margin-top: 8px; display: block;">+$110</span>
+                        </div>
+                        <div class="option-choice-card" onclick="toggleAcc(this, 85)">
+                            <h5>📦 Steel Louvered Bin Hanging Rail</h5>
+                            <p>Holds up to 24 Akro-Mils parts bins for small hardware and fastener triage.</p>
+                            <span style="font-size: 13px; font-weight: 800; color: var(--primary-accent); margin-top: 8px; display: block;">+$85</span>
+                        </div>
+                        <div class="option-choice-card" onclick="toggleAcc(this, 195)">
+                            <h5>🗄️ Lockable 2-Drawer Steel Pedestal</h5>
+                            <p>Ball-bearing slides with keylock for technician tools, calipers, and documentation.</p>
+                            <span style="font-size: 13px; font-weight: 800; color: var(--primary-accent); margin-top: 8px; display: block;">+$195</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cfg-panel" style="background: #F8FAFC;">
+                    <h4 style="font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 14px;">Configuration Summary</h4>
+                    <div style="font-size: 13px; color: #475569; border-bottom: 1px solid #CBD5E1; padding-bottom: 14px; margin-bottom: 14px;">
+                        <div>• Base Cantilever Frame (60" x 30")</div>
+                        <div>• HPL High-Pressure Laminate Top</div>
+                        <div id="cfgAccSummary">• Overhead LED Luminaire (+$145)<br>• 8-Outlet Power Raceway (+$110)</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <span style="font-weight: 700; color: #334155;">Total Unit Estimate:</span>
+                        <span style="font-size: 24px; font-weight: 800; color: var(--primary);" id="cfgTotalDisplay">$1,070.00</span>
+                    </div>
+                    <button class="btn-calc-submit" style="margin-top: 0;" onclick="switchView('wf3', document.querySelectorAll('.wf-tab')[2])">
+                        Proceed to Enterprise RFQ Spec Sheet →
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <section class="features-section">
-        <div class="features-header">
-            <h2>Why B2B Procurement Teams Choose Workplace Systems</h2>
-            <p>Built in New Hampshire, USA to outlast conventional overseas knockoffs</p>
+    <!-- ==================== VIEW 3: SPEC MATRIX & RFQ ==================== -->
+    <div id="wf3" class="wireframe-view">
+        <div class="configurator-view-container">
+            <div class="ux-note">
+                <b>🎯 Wireframe #3 Strategic Intent:</b> Tailored for aerospace and medical procurement directors who order in batches of 10 to 100 units. Delivers clear volumetric discounting, ASTM testing certifications, and one-click RFQ submission.
+            </div>
+
+            <div class="cfg-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 24px; color: var(--primary); font-weight: 800;">Enterprise Volume Pricing & Engineering Specifications</h3>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">Mil-Spec 45208A & ISO 9001:2015 Compliant Workstations</p>
+                    </div>
+                    <button class="btn-quote" onclick="alert('Demo: Downloading complete Workplace Modular Systems 36-page Engineering Catalog & 3D STEP Models')">
+                        📥 Download 3D CAD/STEP Models
+                    </button>
+                </div>
+
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>Model Series</th>
+                            <th>Target Application</th>
+                            <th>Weight Rating</th>
+                            <th>Standard Dispatch</th>
+                            <th>Single Unit</th>
+                            <th>Tier 2 (10-24 Units)</th>
+                            <th>Tier 3 (25+ Units)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>WMS-Cantilever</b></td>
+                            <td>General Mechanical Assembly</td>
+                            <td>1,000 lbs</td>
+                            <td><span style="color: #10B981; font-weight: 700;">5 Business Days</span></td>
+                            <td>$815.00</td>
+                            <td>$735.00 <span style="font-size: 11px; color: #10B981;">(-10%)</span></td>
+                            <td>$675.00 <span style="font-size: 11px; color: #10B981;">(-17%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>WMS-ESD-Clean</b></td>
+                            <td>Class 100/1000 Cleanrooms & Microchips</td>
+                            <td>1,200 lbs</td>
+                            <td><span style="color: #10B981; font-weight: 700;">5 Business Days</span></td>
+                            <td>$995.00</td>
+                            <td>$895.00 <span style="font-size: 11px; color: #10B981;">(-10%)</span></td>
+                            <td>$825.00 <span style="font-size: 11px; color: #10B981;">(-17%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><b>WMS-MotorQuad</b></td>
+                            <td>Ergonomic 3-Shift Multi-Operator</td>
+                            <td>800 lbs</td>
+                            <td><span style="color: #10B981; font-weight: 700;">7 Business Days</span></td>
+                            <td>$1,380.00</td>
+                            <td>$1,240.00 <span style="font-size: 11px; color: #10B981;">(-10%)</span></td>
+                            <td>$1,145.00 <span style="font-size: 11px; color: #10B981;">(-17%)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h4>5-Day Fast Ship Guarantee</h4>
-                <p>Standard modular units are in stock and ship from Londonderry, NH within 5-7 business days, saving weeks of project downtime.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h4>1,000+ lb Welded Steel Strength</h4>
-                <p>Heavy-gauge tubular steel construction certified to hold up to harsh daily laboratory, cleanroom, and aerospace assembly environments.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h4>Infinite Modular Adaptability</h4>
-                <p>Swap shelving, lighting, power raceways, and tool balancers in minutes without unbolting or redesigning your entire floor plan.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Modal confirmation -->
     <div class="modal-overlay" id="quoteModal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeModal()">×</button>
             <div style="font-size: 48px; margin-bottom: 12px;">✅</div>
-            <h3 style="font-size: 22px; font-weight: 800; color: #0A2540; margin-bottom: 8px;">CAD Spec Sheet & Quote Generated!</h3>
+            <h3 style="font-size: 22px; font-weight: 800; color: #0A2540; margin-bottom: 8px;">CAD Spec Sheet & Official Quote Generated!</h3>
             <p style="font-size: 14px; color: #475569; margin-bottom: 20px;">
-                Your customized configuration (<span id="modalSummary" style="font-weight: 700; color: #0F172A;">Standard Cantilever • $815.00</span>) has been routed to our Londonderry engineering team.
+                Your configuration (<span id="modalSummary" style="font-weight: 700; color: #0F172A;">Cantilever Frame • $815.00</span>) has been routed to our Londonderry engineering department.
             </p>
-            <div style="background: #F1F5F9; border-radius: 8px; padding: 12px; font-size: 13px; color: #334155; margin-bottom: 20px;">
-                Estimated Dispatch: <b>5 Business Days from PO Approval</b>
+            <div style="background: #F1F5F9; border-radius: 8px; padding: 14px; font-size: 13px; color: #334155; margin-bottom: 20px; text-align: left;">
+                <div>📋 <b>Engineering Ticket:</b> #WMS-2026-9842</div>
+                <div>⏱️ <b>Response Target:</b> Official CAD & formal quotation sent in &lt; 2 business hours</div>
+                <div>🚚 <b>Factory Lead Time:</b> Dispatches in 5 business days from Londonderry, NH</div>
             </div>
-            <button class="btn-quote" style="width: 100%; padding: 12px;" onclick="closeModal()">Close Preview</button>
+            <button class="btn-quote" style="width: 100%; padding: 13px;" onclick="closeModal()">Return to Prototype</button>
         </div>
     </div>
 
     <div class="mobile-bar">
         <a href="tel:8002589700" style="font-weight: 700; color: #0A2540; text-decoration: none;">📞 (800) 258-9700</a>
-        <a href="#instant-quote" class="btn-quote" style="padding: 9px 18px; font-size: 13px;">Get Quote</a>
+        <a href="#instant-quote" class="btn-quote" style="padding: 9px 18px; font-size: 13px;" onclick="document.getElementById('instant-quote').scrollIntoView({behavior: 'smooth'})">Get Quote</a>
     </div>
 
     <script>
+        function switchView(viewId, tabBtn) {
+            document.querySelectorAll('.wireframe-view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            if (tabBtn) tabBtn.classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleAnnotations(btn) {
+            document.body.classList.toggle('show-annotations');
+            btn.classList.toggle('active');
+        }
+
         function updateCalc() {
             const bench = parseInt(document.getElementById('benchType').value);
             const surface = parseInt(document.getElementById('surfaceType').value);
             const size = parseInt(document.getElementById('benchSize').value);
             const total = bench + surface + size;
             document.getElementById('priceDisplay').innerText = '$' + total.toFixed(2);
+
+            const benchText = document.getElementById('benchType').options[document.getElementById('benchType').selectedIndex].text.split('(')[0].trim();
+            const surfaceText = document.getElementById('surfaceType').options[document.getElementById('surfaceType').selectedIndex].text;
+            const sizeText = document.getElementById('benchSize').options[document.getElementById('benchSize').selectedIndex].text.split('(')[0].trim();
+
+            document.getElementById('lblBenchType').innerText = benchText;
+            document.getElementById('lblSurface').innerText = surfaceText;
+            document.getElementById('svgDimText').innerText = 'SPAN: ' + sizeText;
+
+            // Change surface fill depending on material
+            const svgSurface = document.getElementById('svgSurface');
+            if (surfaceText.includes('Maple')) {
+                svgSurface.setAttribute('fill', '#F59E0B');
+            } else if (surfaceText.includes('Stainless')) {
+                svgSurface.setAttribute('fill', '#94A3B8');
+            } else if (surfaceText.includes('ESD')) {
+                svgSurface.setAttribute('fill', '#0284C7');
+            } else {
+                svgSurface.setAttribute('fill', '#E2E8F0');
+            }
         }
 
         function submitQuote() {
-            const email = document.getElementById('userEmail').value;
+            const email = document.getElementById('userEmail').value.trim();
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                alert('Please enter a valid business email address to generate the engineering quote.');
+                document.getElementById('userEmail').focus();
+                return;
+            }
             const price = document.getElementById('priceDisplay').innerText;
-            const benchName = document.getElementById('benchType').options[document.getElementById('benchType').selectedIndex].text;
+            const benchName = document.getElementById('benchType').options[document.getElementById('benchType').selectedIndex].text.split('(')[0];
             
-            document.getElementById('modalSummary').innerText = benchName + ' (' + price + ')';
+            document.getElementById('modalSummary').innerText = benchName + ' (' + price + ') for ' + email;
             document.getElementById('quoteModal').style.display = 'flex';
         }
 
         function closeModal() {
             document.getElementById('quoteModal').style.display = 'none';
+        }
+
+        let accTotal = 255;
+        function toggleAcc(card, price) {
+            card.classList.toggle('selected');
+            if (card.classList.contains('selected')) {
+                accTotal += price;
+            } else {
+                accTotal -= price;
+            }
+            document.getElementById('cfgTotalDisplay').innerText = '$' + (815 + accTotal).toFixed(2);
         }
     </script>
 </body>

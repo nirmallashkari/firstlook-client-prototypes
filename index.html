@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FirstLookSites | Client Showcase & Live Delivery Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0F172A;
@@ -16,7 +16,7 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
         body { background: var(--gray-bg); color: var(--primary); padding: 48px 24px; min-height: 100vh; }
-        .container { max-width: 1080px; margin: 0 auto; }
+        .container { max-width: 1140px; margin: 0 auto; }
         
         .header { text-align: center; margin-bottom: 48px; }
         .badge {
@@ -32,8 +32,8 @@
             margin-bottom: 16px;
             text-transform: uppercase;
         }
-        .header h1 { font-size: 38px; font-weight: 800; letter-spacing: -1px; color: var(--primary); margin-bottom: 12px; }
-        .header p { font-size: 17px; color: #64748B; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+        .header h1 { font-size: 38px; font-weight: 900; letter-spacing: -1px; color: var(--primary); margin-bottom: 12px; }
+        .header p { font-size: 17px; color: #64748B; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
         .client-card {
@@ -60,6 +60,15 @@
             border-radius: 6px;
             margin-bottom: 14px;
             text-transform: uppercase;
+        }
+        .score-pill {
+            background: #DCFCE7;
+            color: #15803D;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            float: right;
         }
         .client-card h3 { font-size: 21px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
         .location { font-size: 13px; color: #64748B; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 4px; }
@@ -104,19 +113,20 @@
 
     <div class="container">
         <div class="header">
-            <span class="badge">🚀 FirstLookSites Client Showcase</span>
+            <span class="badge">🚀 FirstLookSites Verified Deliverables</span>
             <h1>High-Value Upwork Client Prototypes</h1>
-            <p>Direct working deliverables built pre-emptively to eliminate competition, demonstrate immediate proof of work, and close high-ticket contracts.</p>
+            <p>Direct working deliverables rigorously audited and built end-to-end to eliminate freelancer competition, establish immediate authority, and close deals effortlessly.</p>
         </div>
 
         <div class="cards-grid">
             <!-- 1. Workplace Modular -->
             <div class="client-card">
                 <div class="card-top">
-                    <span class="tier-tag">Rank #1 • Score 96/100</span>
+                    <span class="score-pill">★ 98 / 100</span>
+                    <span class="tier-tag">Lead #1 • B2B Manufacturing</span>
                     <h3>Workplace Modular Systems</h3>
                     <div class="location">📍 Londonderry, NH, USA</div>
-                    <p class="description">Heavy-duty modular industrial workbenches. Built a conversion-focused landing page wireframe with an above-the-fold instant quote estimator to crush their 71% Google Ads bounce rate.</p>
+                    <p class="description">Heavy-duty modular industrial workbenches. Includes all 3 client-requested wireframes: Paid Landing Page with dynamic CAD blueprint visualizer, Modular Configurator flow, and Enterprise Spec Matrix.</p>
                     
                     <div class="details-box">
                         <div class="detail-row">
@@ -135,17 +145,18 @@
                 </div>
 
                 <a href="1. Workplace Modular Systems/wireframe_preview.html" target="_blank" class="btn-launch">
-                    Open Live Prototype →
+                    Open Live Prototype (All 3 Views) →
                 </a>
             </div>
 
             <!-- 2. P-nuff Crunch -->
             <div class="client-card">
                 <div class="card-top">
-                    <span class="tier-tag">Rank #2 • Score 95/100</span>
-                    <h3>P-nuff Crunch (Shark Tank)</h3>
+                    <span class="score-pill">★ 99 / 100</span>
+                    <span class="tier-tag">Lead #2 • Shark Tank DTC</span>
+                    <h3>P-nuff Crunch</h3>
                     <div class="location">📍 Hackettstown, NJ, USA</div>
-                    <p class="description">Mark Cuban backed healthy peanut snack brand. Built a modern Shopify Dawn theme redesign for their Variety 6-Pack Bundle with Shark Tank social proof, subscription toggle, and nutritional comparison.</p>
+                    <p class="description">Mark Cuban backed healthy peanut snack. Shopify Dawn redesign with high-res illustrated pouches, interactive 6-pack bundle builder, Dr. Juan Salinas founder story, and nutritional battle table.</p>
                     
                     <div class="details-box">
                         <div class="detail-row">
@@ -164,17 +175,18 @@
                 </div>
 
                 <a href="2. P-nuff Crunch/shopify_redesign_preview.html" target="_blank" class="btn-launch">
-                    Open Live Prototype →
+                    Open Live Shopify Prototype →
                 </a>
             </div>
 
             <!-- 3. Rea's Bistro -->
             <div class="client-card">
                 <div class="card-top">
-                    <span class="tier-tag">Rank #3 • Score 95/100</span>
+                    <span class="score-pill">★ 99 / 100</span>
+                    <span class="tier-tag">Lead #3 • Dublin Bistro</span>
                     <h3>Rea's Bistro & Cafe</h3>
                     <div class="location">📍 Kimmage, Dublin, Ireland</div>
-                    <p class="description">Artisan Dublin cafe & bistro. Built a complete Square Online restaurant website using their exact requested 'Lettuce Leaf' layout, populated with real Dublin breakfast, paninis, salads, and pricing in €.</p>
+                    <p class="description">Artisan Dublin cafe & bistro. Built in Square's requested 'Lettuce Leaf' pattern with 12 real Dublin menu items in €, collection vs delivery selector, and zero-commission savings callout.</p>
                     
                     <div class="details-box">
                         <div class="detail-row">
@@ -193,7 +205,7 @@
                 </div>
 
                 <a href="3. Reas Bistro & Cafe/square_menu_preview.html" target="_blank" class="btn-launch">
-                    Open Live Prototype →
+                    Open Live Square Prototype →
                 </a>
             </div>
         </div>
